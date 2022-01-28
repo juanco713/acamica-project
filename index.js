@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const sequelize = require('./src/database/index.js');
+const Order = require('./src/database/models/order');
+
 
 
 async function serverConnection() {
