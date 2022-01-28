@@ -1,0 +1,30 @@
+{
+  "name": "acamica-project",
+  "version": "1.0.0",
+  "description": "Full API for e-commerce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanco713/acamica-project.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Juan Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanco713/acamica-project/issues"
+  },
+  "homepage": "https://github.com/juanco713/acamica-project#readme",
+  "dependencies": {
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.5",
+    "sequelize": "^6.14.1"
+  }
+}
