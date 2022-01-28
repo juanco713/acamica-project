@@ -3,6 +3,12 @@ const app = express();
 require('dotenv').config();
 const sequelize = require('./src/database/index.js');
 const Order = require('./src/database/models/order');
+const Product = require('./src/database/models/product');
+const User = require('./src/database/models/users');
+const Role = require('./src/database/models/role');
+const Payment = require('./src/database/models/role');
+
+
 
 
 

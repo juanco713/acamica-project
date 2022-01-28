@@ -1,4 +1,6 @@
-const { DataTypes } = require("sequelize/dist");
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require('../index');
+
 
 const Payment = sequelize.define("payment", {
     id: {
