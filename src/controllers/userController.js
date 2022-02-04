@@ -2,8 +2,13 @@ const { repoUser } = require('../repositories/user');
 
 module.exports.userController = {
 
-    create: async(req,res) => {
+    signUp: async(req,res) => {
         const data = await repoUser.signUp(req.body);
         res.json(data);
-    }
-}
+    },
+
+    signIn: async (req,res) => {
+        const data = await repoUser.signIn(req.body);
+        res.json(data);
+    } 
+};
