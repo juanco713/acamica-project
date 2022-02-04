@@ -1,19 +1,22 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../index');
+const connection = require('../index');
 
-const Role = sequelize.define("role", {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    name: {
-        type: DataTypes.STRING,
-        allowNull:false
-    }
-}, {
-    timestamps: false
-});
+function createRoleModel(connection) {
+    const Role = connection.define("role", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull:false
+        }
+    }, {
+        timestamps: false
+    });
+    return Role;
+}
 
-module.exports = Role;
+module.exports = {createRoleModel};

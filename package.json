@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/juanco713/acamica-project#readme",
   "dependencies": {
+    "body-parser": "^1.19.1",
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",

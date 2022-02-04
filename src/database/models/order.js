@@ -1,19 +1,22 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../index');
+const connection = require('../index');
 
-const Order = sequelize.define("order", {
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    open: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
-    }
-}, {
-    timestamps: false
-});
+function createOrderModel(connection) {
+    const Order = connection.define("order", {
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            allowNull: false,
+            primaryKey: true
+        },
+        open: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
+    }, {
+        timestamps: false
+    });
+    return Order;
+}
 
-module.exports = Order;
+module.exports = {createOrderModel};

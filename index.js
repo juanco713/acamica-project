@@ -1,31 +1,21 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
 require('dotenv').config();
-const sequelize = require('./src/database/index.js');
-const Order = require('./src/database/models/order');
-const Product = require('./src/database/models/product');
-const User = require('./src/database/models/users');
-const Role = require('./src/database/models/role');
-const Payment = require('./src/database/models/role');
+const {connectDB} = require('./src/database/index');
 
+async function main() {
+    const { DB_NAME, DB_USERNAME, DB_PASSWORD,DB_HOST } = process.env;
 
-
-
-
-async function serverConnection() {
-    try {
-        await sequelize.authenticate();
-        await sequelize.sync();
-        console.log('Connection has been established');
         app.use(express.json());
-        app.listen(process.env.PORT, () => {
-            console.log(`Server running in port ${process.env.PORT}`);
-        });
-    } catch (error) {
-        console.error(error);
-    }
-
+        app.use(bodyParser.json());
+        app.use(require('./src/routes/productRoute'))
+        app.use(require('./src/routes/paymentRoute'))
+        app.use(require('./src/routes/roleRoute'))
+        app.use(require('./src/routes/userRoute'))
+        app.listen(process.env.PORT, () => console.log(`Conected to port ${process.env.PORT}`));
+        await connectDB(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
 };
 
 
-serverConnection();
+main();
